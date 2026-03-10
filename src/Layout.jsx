@@ -1,16 +1,13 @@
 import { Outlet } from "react-router-dom";
 import NavBar from "./NavBar";
 
-function Layout() {
+export default function Layout() {
   return (
-    <div>
+    <div className="bg-[#f5f5f7] min-h-screen flex flex-col font-sans">
       <NavBar />
-
-      <div className="layout-content">
+      <main className="flex-grow">
         <Outlet />
-      </div>
+      </main>
     </div>
   );
 }
-
-export default Layout;

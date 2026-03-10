@@ -1,18 +1,13 @@
 import { useNavigate } from "react-router-dom";
 
-function MovieCard({ title, posterPath, voteAverage }) {
-  const imageUrl = "https://image.tmdb.org/t/p/w500" + posterPath;
+function MovieCard({ id, title, posterPath, voteAverage }) {
   const navigate = useNavigate();
 
   return (
-    <div
-      className="movie-card"
-      onClick={() => navigate("/details")}
-      style={{ cursor: "pointer" }}
-    >
-      <img src={imageUrl} alt={title} />
+    <div className="movie-card" onClick={() => navigate(`/details/${id}`)}>
+      <img src={`https://image.tmdb.org/t/p/w500${posterPath}`} alt={title} />
       <h3>{title}</h3>
-      <p>평점 : {voteAverage}</p>
+      <p>평점: {voteAverage}</p>
     </div>
   );
 }
